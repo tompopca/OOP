@@ -49,13 +49,13 @@ namespace cv05
             }
             else
             {
-                throw new Exception("Špatně zadane mnozstvi nebo palivo.");
+                throw new Exception("Spatne zadane mnozstvi nebo palivo.");
             }
         }
 
-        public void nastavRadio(bool zapVyp)
+        public void nastavRadio(bool x)
         {
-            radio.zapnoutRadio(zapVyp);
+            radio.zapnoutRadio(x);
         }
 
         public void nastavPredvolbu(int cislo, double kmitocet)

@@ -8,38 +8,27 @@ namespace cv05
 {
     class Autoradio
     {
-        private double naladenyKmitocet;
+        private double naladenyKmitocet = 100;
         private bool radioZapnuto = false;
-        private Dictionary<int, double> vsechnyKmitocty;
-        private int total = 0;
+        private Dictionary<int, double> predvolby = new Dictionary<int, double>();
 
-        public void zapnoutRadio(bool zapVyp)
+      
+
+        public void zapnoutRadio(bool x)
         {
-            if (zapVyp)
-            {
-                radioZapnuto = true;
-            }
-            else
-                radioZapnuto = false;
+            radioZapnuto = x;
         }
 
         public void nastavPredvolbu(int cislo, double kmitocet)
         {
-            if (total == 0)
-            {
-                vsechnyKmitocty = new Dictionary<int, double>();
-                total++;
-                vsechnyKmitocty.Add(cislo, kmitocet);
-            }
-            else
-                vsechnyKmitocty.Add(cislo, kmitocet);
+            predvolby[cislo] = kmitocet;
         }
 
         public void preladNaPredvolbu(int cislo)
         {
-            if (vsechnyKmitocty.ContainsKey(cislo))
+            if (predvolby.ContainsKey(cislo))
             {
-                naladenyKmitocet = vsechnyKmitocty[cislo];
+                naladenyKmitocet = predvolby[cislo];
             }
             else
                 throw new Exception("Kmitocet nenalezen");
@@ -49,10 +38,10 @@ namespace cv05
         {
             if (radioZapnuto)
             {
-                return String.Format($"Zapnuto:{radioZapnuto}, Naladeny kmitocet:{naladenyKmitocet}");
+                return String.Format($"Radio je zapnuto, Naladeny kmitocet:{naladenyKmitocet}");
             }
             else
-                return String.Format($"Zapnuto:{radioZapnuto}");
+                return String.Format($"Radio je vypnuto");
         }
     }
 }

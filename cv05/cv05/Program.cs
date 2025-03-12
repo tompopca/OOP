@@ -12,7 +12,7 @@ namespace Cvicenie5
         static void Main(string[] args)
         {
             Osobni osobak = new Osobni(2, 50, Auto.TypPaliva.Benzin);
-            Nakladni nakladak = new Nakladni(15, 70, Auto.TypPaliva.Nafta);
+            Nakladni nakladak = new Nakladni(15, 110, Auto.TypPaliva.Nafta);
 
             osobak.nastavRadio(true);
             osobak.nastavPredvolbu(3, 142);
@@ -22,8 +22,18 @@ namespace Cvicenie5
             osobak.preladNaPredvolbu(4);
             osobak.vypisRadio();
 
+            Console.WriteLine();
             Console.WriteLine(osobak);
             Console.WriteLine(nakladak);
+            Console.WriteLine();
+
+
+            osobak.nastavRadio(false);
+            osobak.vypisRadio();
+            Console.WriteLine();
+            osobak.natankuj(Auto.TypPaliva.Benzin, 2.5);
+            Console.WriteLine(osobak);
+            Console.ReadLine();
         }
     }
 }
